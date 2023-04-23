@@ -23,9 +23,18 @@ const createBoxes = amount => {
   boxes.insertAdjacentHTML('beforeend', html);
 };
 
-createBtn.addEventListener('click', () => {
+// <div> creation by clicking on "Create" button
+createBtn.addEventListener("click", () => {
   createBoxes(input.value);
 });
+
+// <div> creation by pressing Enter
+input.addEventListener("keypress", event => {
+  if (event.key === "Enter") {
+    createBoxes(input.value);
+  }
+});
+
 
 const destroyBoxes = () => (boxes.innerHTML = '');
 
